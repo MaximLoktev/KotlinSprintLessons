@@ -13,9 +13,5 @@ fun main() {
 
     val seconds = remainingSecondsAfterHours % 60
 
-    val formattedHours = String.format("%02d", hours)
-    val formattedMinutes = String.format("%02d", minutes)
-    val formattedSeconds = String.format("%02d", seconds)
-
-    println("$formattedHours:$formattedMinutes:$formattedSeconds")
+    println("%02d:%02d:%02d".format(hours, minutes, seconds))
 }
