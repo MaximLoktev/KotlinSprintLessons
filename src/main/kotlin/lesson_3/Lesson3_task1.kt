@@ -1,10 +1,8 @@
 package lesson_3
 
 fun main() {
-    var greeting = ""
+    var greeting = "Good afternoon"
     val userName = "Maxim"
-
-    greeting = "Good afternoon"
 
     println("$greeting, $userName!")
 
