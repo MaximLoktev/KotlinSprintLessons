@@ -5,11 +5,11 @@ fun main() {
     var end = "E4"
     var stepNumber = 1
 
-    println("$start $end $stepNumber")
+    println("$start-$end;$stepNumber")
 
     start = "D2"
     end = "D3"
-    stepNumber = 2
+    stepNumber++
 
-    println("$start $end $stepNumber")
+    println("$start-$end;$stepNumber")
 }
