@@ -4,14 +4,9 @@ fun main() {
     println("--- Таймер ---")
 
     print("Введите время таймера(в секундах): ")
-    val numberOfSeconds = readln().toInt()
+    val numberOfSeconds = readln().toLong()
 
-    var counter = numberOfSeconds
-
-    while (counter > 0) {
-        println(counter--)
-        Thread.sleep(1000)
-    }
+    Thread.sleep(numberOfSeconds * 1000)
 
     println("Прошло $numberOfSeconds секунд")
 }
