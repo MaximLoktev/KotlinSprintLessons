@@ -5,11 +5,18 @@ private const val MIN_PASSWORD_LENGTH = 6
 fun main() {
     println("\n--- Генератор сложных паролей ---")
 
-    val lowercase = ('a'..'z').toList()
-    val uppercase = ('A'..'Z').toList()
-    val digits = ('0'..'9').toList()
+    val lowercase = ('a'..'z')
+    val uppercase = ('A'..'Z')
+    val digits = ('0'..'9')
 
     val allChars = lowercase + uppercase + digits
+
+    var passwordLength = 0
+
+    while (passwordLength < MIN_PASSWORD_LENGTH) {
+        print("\nВведите длину пароля (минимум 6 символов): ")
+        passwordLength = readln().toInt()
+    }
 
     // Гарантируем наличие всех типов символов
     val chars = mutableListOf(
@@ -18,23 +25,11 @@ fun main() {
         digits.random()
     )
 
-    var isSuccess = false
-
-    while (!isSuccess) {
-        print("\nВведите длину пароля (минимум 6 символов): ")
-        val passwordLength = readln().toInt()
-
-        if (passwordLength < MIN_PASSWORD_LENGTH) {
-            println("\nОшибка: минимальная длина пароля - 6 символов")
-            continue
-        } else {
-            for (i in 3 until passwordLength) {
-                chars.add(allChars.random())
-            }
-            isSuccess = true
-        }
+    for (i in 3 until passwordLength) {
+        chars.add(allChars.random())
     }
 
-    val password = chars.shuffled().joinToString("")
-    println("\nСгенерированный пароль: $password")
+    chars.shuffle()
+
+    println("\nСгенерированный пароль: ${chars.joinToString("")}")
 }
