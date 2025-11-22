@@ -1,8 +1,8 @@
 package lesson_6
 
-const val ATTEMPTS = 5
-const val START_RANGE = 1
-const val END_RANGE = 9
+private const val ATTEMPTS = 5
+private const val START_RANGE = 1
+private const val END_RANGE = 9
 
 fun main() {
     val secretNumber = (START_RANGE..END_RANGE).random()
