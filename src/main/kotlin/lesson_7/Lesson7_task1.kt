@@ -9,8 +9,7 @@ fun main() {
     var password = ""
 
     for (i in 0 until NUMBER_OF_CHARS) {
-        password += if (i % 2 == 0) letters.random().toString()
-                        else digits.random().toString()
+        password += if (i % 2 == 0) letters.random() else digits.random()
     }
 
     print("\n")
