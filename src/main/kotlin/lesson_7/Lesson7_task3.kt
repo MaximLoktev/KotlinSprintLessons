@@ -9,6 +9,4 @@ fun main() {
     for (i in 0..number step 2) {
         print("$i ")
     }
-
-    println()
 }
