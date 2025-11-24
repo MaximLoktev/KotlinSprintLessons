@@ -8,13 +8,14 @@ fun main() {
     print("\nКакой ингредиент нужно заменить: ")
     val searchQuery = readln().lowercase()
 
-    if (ingredients.contains(searchQuery)) {
+    val index = ingredients.indexOf(searchQuery)
+
+    if (index != -1) {
         println("\nИнгредиент $searchQuery в рецепте есть")
 
         print("\nКакой ингредиент нужно добавить: ")
         val newItem = readln().lowercase()
 
-        val index = ingredients.indexOf(searchQuery)
         ingredients[index] = newItem
 
         println("\nГотово! Вы сохранили следующий список: ${ingredients.contentToString()}")
