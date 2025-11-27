@@ -8,8 +8,8 @@ fun main() {
 }
 
 fun passwordGeneration(length: Int): String {
-    val digits = "0123456789"
-    val specialChars = " !\"#$%&'()*+,-./ "
+    val digits = 0..9
+    val specialChars = ' '..'/'
 
     var buildString = ""
 
