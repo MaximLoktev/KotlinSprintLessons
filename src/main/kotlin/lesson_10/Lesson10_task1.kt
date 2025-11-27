@@ -16,4 +16,4 @@ fun main() {
     )
 }
 
-fun rollOfDice(): Int = (1..6).random()
+private fun rollOfDice(): Int = (1..6).random()

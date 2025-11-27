@@ -7,7 +7,7 @@ fun main() {
     println("Сгенерированный пароль: ${passwordGeneration(length)}")
 }
 
-fun passwordGeneration(length: Int): String {
+private fun passwordGeneration(length: Int): String {
     val digits = 0..9
     val specialChars = ' '..'/'
 

@@ -18,4 +18,4 @@ fun main() {
     )
 }
 
-fun isValidCredentials(string: String) = string.length >= MIN_LENGTH
+private fun isValidCredentials(string: String) = string.length >= MIN_LENGTH

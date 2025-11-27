@@ -28,12 +28,12 @@ fun main() {
     printGameResults(totalRounds, playerWins)
 }
 
-fun rollOfDice(): Int = (1..6).random()
+private fun rollOfDice(): Int = (1..6).random()
 
-fun printResultRoll(player: String, result: Int) =
+private fun printResultRoll(player: String, result: Int) =
     println("$player бросил кубик и выпало $result")
 
-fun isPlayerWinsRound(humanResult: Int, robotResult: Int): Boolean {
+private fun isPlayerWinsRound(humanResult: Int, robotResult: Int): Boolean {
     println(
         when {
             humanResult > robotResult -> "Победило человечество"
@@ -44,7 +44,7 @@ fun isPlayerWinsRound(humanResult: Int, robotResult: Int): Boolean {
     return humanResult > robotResult
 }
 
-fun printGameResults(totalRounds: Int, playerWins: Int) {
+private fun printGameResults(totalRounds: Int, playerWins: Int) {
     println("\n--- ИТОГИ ---")
     println("Сыграно раундов: $totalRounds")
     println("Ваши победы: $playerWins")
