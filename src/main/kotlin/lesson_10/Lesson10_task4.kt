@@ -10,25 +10,30 @@ fun main() {
         totalRounds++
         println("\n--- Раунд $totalRounds ---")
 
-        if (isPlayerWinsRound()) { playerWins++ }
+        val humanResult = rollOfDice()
+        printResultRoll("Человек", humanResult)
+
+        val robotResult = rollOfDice()
+        printResultRoll("Робот", robotResult)
+
+        if (isPlayerWinsRound(humanResult, robotResult)) {
+            playerWins++
+        }
 
         print("\nХотите бросить кости еще раз? Введите Да или Нет: ")
         val answer = readln()
 
     } while (answer.equals("Да", ignoreCase = true))
 
-    println("\n--- ИТОГИ ---")
-    println("Сыграно раундов: $totalRounds")
-    println("Ваши победы: $playerWins")
+    printGameResults(totalRounds, playerWins)
 }
 
-fun isPlayerWinsRound(): Boolean {
-    val humanResult = rollOfDice()
-    println("Человек бросил кубик и выпало $humanResult")
+fun rollOfDice(): Int = (1..6).random()
 
-    val robotResult = rollOfDice()
-    println("Робот бросил кубик и выпало $robotResult")
+fun printResultRoll(player: String, result: Int) =
+    println("$player бросил кубик и выпало $result")
 
+fun isPlayerWinsRound(humanResult: Int, robotResult: Int): Boolean {
     println(
         when {
             humanResult > robotResult -> "Победило человечество"
@@ -39,4 +44,8 @@ fun isPlayerWinsRound(): Boolean {
     return humanResult > robotResult
 }
 
-fun rollOfDice(): Int = (1..6).random()
+fun printGameResults(totalRounds: Int, playerWins: Int) {
+    println("\n--- ИТОГИ ---")
+    println("Сыграно раундов: $totalRounds")
+    println("Ваши победы: $playerWins")
+}
