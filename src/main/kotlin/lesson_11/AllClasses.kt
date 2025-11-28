@@ -5,7 +5,7 @@ class Category(
     val icon: String,
     val name: String,
     var description: String,
-    val recipes: MutableList<Recipe>,
+    val recipes: List<Recipe>,
 ) {
 
     fun editCategoryDescription(string: String) { }
@@ -28,7 +28,7 @@ class Recipe(
     val icon: String,
     val name: String,
     val portions: Int,
-    val ingredients: MutableList<Ingredient>,
+    val ingredients: List<Ingredient>,
     val cookingMethod: List<String>,
 ) {
 
@@ -51,7 +51,7 @@ class Recipe(
 class Ingredient(
     val id: Int,
     val name: String,
-    val quantity: Int,
+    val quantity: String,
     val unitOfMeasure: String,
 ) {
     fun getIngredientInfo(): String = """
