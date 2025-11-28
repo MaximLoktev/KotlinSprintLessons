@@ -7,18 +7,18 @@ fun main() {
         name = "Игровая комната"
     )
 
-    val users = listOf(
-        User(id = 1, name = "Max", avatar = "111.jpg", status = UserStatus.SPEAKING),
-        User(id = 2, name = "Djon", avatar = "222.jpg", status = UserStatus.MUTED),
-        User(id = 3, name = "Alex", avatar = "333.jpg", status = UserStatus.MICROPHONE_OFF)
+    val members = listOf(
+        Member(id = 1, name = "Max", avatar = "111.jpg", status = UserStatus.SPEAKING),
+        Member(id = 2, name = "Djon", avatar = "222.jpg", status = UserStatus.MUTED),
+        Member(id = 3, name = "Alex", avatar = "333.jpg", status = UserStatus.MICROPHONE_OFF)
     )
 
-    users.forEach {
+    members.forEach {
         gameRoom.addParticipant(it)
     }
 
     gameRoom.updateUserStatus(
-        username = users[0].name,
+        username = members[0].name,
         newStatus = UserStatus.MUTED
     )
 
@@ -31,7 +31,7 @@ enum class UserStatus(val string: String) {
     MUTED("пользователь заглушен"),
 }
 
-class User(
+class Member(
     val id: Int,
     val name: String,
     val avatar: String,
@@ -59,9 +59,9 @@ class VoiceRoom(
     val coverImage: String,
     val name: String
 ) {
-    private val participants = mutableListOf<User>()
+    private val participants = mutableListOf<Member>()
 
-    fun addParticipant(user: User) {
+    fun addParticipant(user: Member) {
         participants.add(user)
         println("Пользователь '${user.name}' присоединился к комнате '$name'")
     }

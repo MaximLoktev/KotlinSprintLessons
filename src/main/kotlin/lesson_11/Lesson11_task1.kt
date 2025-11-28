@@ -27,3 +27,10 @@ fun main() {
     println("Пароль: ${secondUser.password}")
     println("Почта: ${secondUser.email}")
 }
+
+class User(
+    val id: Int,
+    val login: String,
+    val password: String,
+    val email: String,
+)
