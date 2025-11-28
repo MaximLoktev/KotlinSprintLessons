@@ -5,29 +5,14 @@ class Category(
     val icon: String,
     val name: String,
     var description: String,
+    val recipes: MutableList<Recipe>,
 ) {
-    val recipes = mutableListOf<Recipe>()
 
-    fun editCategoryDescription(string: String) {
-        description = string
-        println("Описание категории изменено!")
-    }
+    fun editCategoryDescription(string: String) { }
 
-    fun addNewRecipe(recipe: Recipe) {
-        recipes.add(recipe)
-        println("В категорию '$name' добавлен новый рецепт '${recipe.name}'")
-    }
+    fun addNewRecipe(recipe: Recipe) { }
 
-    fun removeRecipe(recipeName: String) {
-        val recipe = recipes.find { it.name == recipeName }
-
-        if (recipe != null) {
-            recipes.remove(recipe)
-            println("Рецепт '${recipeName}' удалён из категории '$name'")
-        } else {
-            println("Рецепт '${recipeName}' не найден!")
-        }
-    }
+    fun removeRecipe(recipeName: String) { }
 
     fun getCategoryInfo(): String = """
         Идентификатор: $id
@@ -43,42 +28,35 @@ class Recipe(
     val icon: String,
     val name: String,
     val portions: Int,
+    val ingredients: MutableList<Ingredient>,
+    val cookingMethod: List<String>,
 ) {
-    private val ingredients = mutableListOf<Ingredient>()
 
-    fun addNewIngredient(item: Ingredient) {
-        ingredients.add(item)
-        println("В рецепт '$name' добавлен новый ингредиент '${item.name}'")
-    }
+    fun addNewIngredient(item: Ingredient) { }
 
-    fun removeIngredient(itemName: String) {
-        val item = ingredients.find { it.name == itemName }
-
-        if (item != null) {
-            ingredients.remove(item)
-            println("Ингредиент '${itemName}' удалён из рецепта '$name'")
-        } else {
-            println("Ингредиент '${itemName}' не найден!")
-        }
-    }
+    fun removeIngredient(itemName: String) { }
 
     fun getRecipeInfo(): String = """
         Идентификатор: $id
         Иконка: $icon
         Название: $name
         Порции: $portions
-        Ингредиенты: ${ingredients.map { it.name }}
+        Ингредиенты: ${ingredients.map { 
+            "${it.name}: ${it.quantity} ${it.unitOfMeasure}" 
+        }}
+        Способ приготовления: $cookingMethod
     """.trimIndent()
 }
 
 class Ingredient(
     val id: Int,
     val name: String,
-    val value: String,
+    val quantity: Int,
+    val unitOfMeasure: String,
 ) {
     fun getIngredientInfo(): String = """
         Идентификатор: $id
         Название: $name
-        Кол-во: $value
+        Кол-во: $quantity $unitOfMeasure
     """.trimIndent()
 }
