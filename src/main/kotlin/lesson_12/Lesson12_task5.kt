@@ -8,7 +8,7 @@ fun main() {
     val nightTempRangeKelvin = 278..293 // 5°C to 20°C в Кельвинах
 
     val weatherData = List(numberOfDays) {
-        WeatherData4(
+        WeatherData5(
             dayTempKelvin = dayTempRangeKelvin.random(),
             nightTempKelvin = nightTempRangeKelvin.random(),
             _hasPrecipitation = Random.nextBoolean()
@@ -31,7 +31,7 @@ fun main() {
 
 private const val ABSOLUTE_ZERO_CELSIUS = -273
 
-class WeatherData4(
+class WeatherData5(
     dayTempKelvin: Int,
     nightTempKelvin: Int,
     _hasPrecipitation: Boolean,
