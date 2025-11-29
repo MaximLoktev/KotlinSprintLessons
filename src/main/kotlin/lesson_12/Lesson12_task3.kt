@@ -16,8 +16,8 @@ class WeatherData3(
     nightTempKelvin: Int,
     _hasPrecipitation: Boolean,
 ) {
-    val dayTemp = (dayTempKelvin + ABSOLUTE_ZERO_CELSIUS)
-    val nightTemp = (nightTempKelvin + ABSOLUTE_ZERO_CELSIUS)
+    val dayTemp = dayTempKelvin + ABSOLUTE_ZERO_CELSIUS
+    val nightTemp = nightTempKelvin + ABSOLUTE_ZERO_CELSIUS
     val hasPrecipitation = _hasPrecipitation
 
     fun printWeatherData(dayOfWeek: String) {
