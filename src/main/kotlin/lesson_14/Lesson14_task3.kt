@@ -2,16 +2,15 @@ package lesson_14
 
 import kotlin.math.PI
 
-
 fun main() {
     val black = "Чёрный"
     val white = "Белый"
 
-    val circle1 = Circle(color = white, 15)
-    val circle2 = Circle(color = black, 5)
+    val circle1 = Circle(color = white, 15.0)
+    val circle2 = Circle(color = black, 5.0)
 
-    val rectangle1 = Rectangle(color = white, width = 10, height = 5)
-    val rectangle2 = Rectangle(color = black, width = 25, height = 15)
+    val rectangle1 = Rectangle(color = white, width = 10.0, height = 5.0)
+    val rectangle2 = Rectangle(color = black, width = 25.0, height = 15.0)
 
     val figures = listOf(circle1, circle2, rectangle1, rectangle2)
 
@@ -23,34 +22,34 @@ fun main() {
         .filter { it.color == white }
         .sumOf { it.calculateArea() }
 
-    println("\nСумма периметров всех черных фигур: $blackPerimeterSum")
-    println("Сумма площадей всех белых фигур: $whiteAreaSum")
+    println("\nСумма периметров всех черных фигур: ${"%.2f".format(blackPerimeterSum)}")
+    println("Сумма площадей всех белых фигур: ${"%.2f".format(whiteAreaSum)}")
 }
 
 abstract class Figure(val color: String) {
 
-    abstract fun calculateArea(): Int
+    abstract fun calculateArea(): Double
 
-    abstract fun calculatePerimeter(): Int
+    abstract fun calculatePerimeter(): Double
 }
 
 class Circle(
     color: String,
-    val radius: Int,
+    val radius: Double,
 ) : Figure(color) {
 
-    override fun calculateArea(): Int = (PI * radius * radius).toInt()
+    override fun calculateArea() = (PI * radius * radius)
 
-    override fun calculatePerimeter(): Int = (2 * PI * radius).toInt()
+    override fun calculatePerimeter() = (2 * PI * radius)
 }
 
 class Rectangle(
     color: String,
-    val width: Int,
-    val height: Int,
+    val width: Double,
+    val height: Double,
 ) : Figure(color) {
 
-    override fun calculateArea(): Int = width * height
+    override fun calculateArea() = width * height
 
-    override fun calculatePerimeter(): Int = (width + height) * 2
+    override fun calculatePerimeter() = (width + height) * 2
 }
