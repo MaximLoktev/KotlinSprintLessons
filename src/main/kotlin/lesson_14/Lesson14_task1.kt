@@ -7,9 +7,9 @@ fun main() {
 }
 
 open class Liner(
-    val maxSpeed: Int = 50,
-    val passengerCapacity: Int = 100,
-    val cargoCapacity: Int = 50,
+    open val maxSpeed: Int = 50,
+    open val passengerCapacity: Int = 100,
+    open val cargoCapacity: Int = 50,
 )
 
 class Icebreaker(
