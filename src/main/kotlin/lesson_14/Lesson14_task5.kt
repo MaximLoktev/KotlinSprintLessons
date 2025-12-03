@@ -20,10 +20,10 @@ fun main() {
 
 class Chat {
 
-    private val messages = mutableListOf<MessageModel>()
+    private val messages = mutableListOf<Message>()
 
     fun addMessage(author: String, text: String): String {
-        val newMessage = MessageModel(
+        val newMessage = Message(
             author = author,
             text = text,
         )
@@ -62,7 +62,7 @@ class Chat {
     }
 }
 
-open class MessageModel(
+open class Message(
     val id: String = UUID.randomUUID().toString(),
     val author: String,
     val text: String,
@@ -74,7 +74,7 @@ class ChildMessage(
     author: String,
     text: String,
     val parentMessageId: String,
-) : MessageModel(author = author, text = text) {
+) : Message(author = author, text = text) {
 
-    override fun display(): String = "  $author: $text"
+    override fun display(): String = "\t$author: $text"
 }
