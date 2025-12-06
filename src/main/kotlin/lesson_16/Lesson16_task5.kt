@@ -29,10 +29,12 @@ class Player(
     private var health: Int,
     private var attackPower: Int,
 ) {
-    private var isAlive = true
 
     fun takeDamage(damage: Int) {
-        if (!isAlive) return
+        if (health <= 0) {
+            println("$name мёртв и не может получать урон")
+            return
+        }
 
         health -= damage
 
@@ -45,7 +47,7 @@ class Player(
     }
 
     fun heal(healAmount: Int) {
-        if (!isAlive) {
+        if (health <= 0) {
             println("$name мёртв и не может лечиться")
             return
         }
@@ -55,7 +57,6 @@ class Player(
     }
 
     private fun die() {
-        isAlive = false
         health = 0
         attackPower = 0
     }
@@ -64,5 +65,5 @@ class Player(
 
     fun getAttackPower(): Int = attackPower
 
-    fun isAlive(): String = if (isAlive) "жив" else "мёртв"
+    fun isAlive(): String = if (health <= 0) "мёртв" else "жив"
 }
