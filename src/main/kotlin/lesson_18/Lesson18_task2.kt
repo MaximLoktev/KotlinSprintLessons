@@ -1,7 +1,7 @@
 package lesson_18
 
 fun main() {
-    val diceList: List<Dice> = listOf(D4(), D6(), D8())
+    val diceList: List<Dice> = listOf(Dice4(), Dice6(), Dice8())
 
     println("Бросаем кости:")
     for (dice in diceList) {
@@ -9,13 +9,13 @@ fun main() {
     }
 }
 
-open class Dice(val sides: Int) {
-    open fun roll() {
+abstract class Dice(val sides: Int) {
+    fun roll() {
         val result = (1..sides).random()
-        println("Кость D$sides выпало: $result")
+        println("Кость Dice$sides выпало: $result")
     }
 }
 
-class D4 : Dice(sides = 4)
-class D6 : Dice(sides = 6)
-class D8 : Dice(sides = 8)
+class Dice4 : Dice(sides = 4)
+class Dice6 : Dice(sides = 6)
+class Dice8 : Dice(sides = 8)
