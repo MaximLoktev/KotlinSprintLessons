@@ -15,7 +15,7 @@ abstract class Box {
     abstract fun surfaceArea(): Double
 }
 
-class RectangularBox(
+open class RectangularBox(
     val length: Double,
     val width: Double,
     val height: Double,
@@ -25,6 +25,4 @@ class RectangularBox(
     }
 }
 
-class CubeBox(val side: Double) : Box() {
-    override fun surfaceArea(): Double = 6 * side * side
-}
+class CubeBox(side: Double) : RectangularBox(side, side, side)
