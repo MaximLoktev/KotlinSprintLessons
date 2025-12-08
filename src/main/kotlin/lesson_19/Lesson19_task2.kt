@@ -12,17 +12,15 @@ fun main() {
 }
 
 enum class Category {
-    CLOTHING {
-        override fun getDisplayName() = "Одежда"
-    },
-    STATIONERY {
-        override fun getDisplayName() = "Канцелярские товары"
-    },
-    OTHER {
-        override fun getDisplayName() = "Разное"
-    };
+    CLOTHING,
+    STATIONERY,
+    OTHER;
 
-    abstract fun getDisplayName(): String
+    fun getDisplayName(): String = when (this) {
+        CLOTHING -> "Одежда"
+        STATIONERY -> "Канцелярские товары"
+        OTHER -> "Разное"
+    }
 }
 
 class Product(
