@@ -13,9 +13,11 @@ fun main() {
         print("Человек ${index + 1}: ")
         val input = readln()
         val parts = input.split(" ")
-        val name = parts[0]
+        val name = parts[0].lowercase().replaceFirstChar { it.uppercase() }
         val genderStr = parts[1]
-        val gender = Gender.entries.first { it.string == genderStr }
+        val gender = Gender.entries.first {
+            it.string.equals(genderStr, ignoreCase = true)
+        }
         Person(name, gender)
     }
 
