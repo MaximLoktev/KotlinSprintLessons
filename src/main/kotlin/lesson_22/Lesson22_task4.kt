@@ -6,12 +6,12 @@ fun main() {
 }
 
 data class MainScreenState(
-    val data: String = "",
+    val data: String? = null,
     val isLoading: Boolean = false
 )
 
 class MainScreenViewModel {
-    private var state = MainScreenState()
+    var state = MainScreenState()
 
     fun loadData() {
         println("Состояние 1: $state")
