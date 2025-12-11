@@ -1,13 +1,13 @@
 package lesson_20
 
 fun main() {
-    val checkDoor: (Player) -> String = { player: Player ->
+    val checkDoor: (Player2) -> String = { player: Player2 ->
         if (player.hasKey) "Игрок открыл дверь" else "Дверь заперта"
     }
 
-    val playerWithKey = Player(name = "Иван", hasKey = true)
+    val playerWithKey = Player2(name = "Иван", hasKey = true)
 
     println(checkDoor(playerWithKey))
 }
 
-class Player(val name: String, val hasKey: Boolean)
+class Player2(val name: String, val hasKey: Boolean)
